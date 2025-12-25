@@ -20,6 +20,11 @@ git commit -m "$message"
 
 # Push changes
 echo -e "${BLUE}Pushing to remote...${NC}"
-git push
+# Attempt to push, and if it fails due to no upstream, set it automatically
+if ! git push; then
+    echo -e "${BLUE}No upstream branch detected. Setting upstream to origin...${NC}"
+    current_branch=$(git branch --show-current)
+    git push --set-upstream origin "$current_branch"
+fi
 
 echo -e "${GREEN}Process completed!${NC}"
