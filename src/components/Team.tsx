@@ -7,7 +7,7 @@ import Image from "next/image";
 const team = [
   {
     name: "Nikhil Rawat",
-    role: "SoftwareEngineer",
+    role: "Software Engineer",
     expertise: ["Node.js", "GenAI", "AWS", "React", "Next.js", "GraphQL", "MongoDB", "TypeScript", "Go", "Kubernetes", "Redis", "Kafka"],
     image: "/nikhil.jpg",
   },

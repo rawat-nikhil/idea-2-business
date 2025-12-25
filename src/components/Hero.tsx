@@ -42,7 +42,7 @@ const Hero = () => {
       >
         <motion.div
           variants={itemVariants}
-          className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md bulb-glow cursor-default group"
+          className="hidden lg:inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md bulb-glow cursor-default group"
         >
           <div className="w-2 h-2 rounded-full bg-lime-400 status-bulb" />
           <span className="text-[13px] font-semibold text-lime-400/90 tracking-wide uppercase">
@@ -62,9 +62,9 @@ const Hero = () => {
           variants={itemVariants}
           className="text-[17px] md:text-[20px] text-muted max-w-2xl mx-auto mb-12 leading-relaxed font-medium"
         >
-          Full-Stack Software Engineers specializing in high-performance systems,
-          cloud architecture, and creating seamless digital experiences that
-          scale.
+          Full-Stack Software Engineers specializing in high-performance
+          systems, cloud architecture, and creating seamless digital experiences
+          that scale.
         </motion.p>
 
         <motion.div

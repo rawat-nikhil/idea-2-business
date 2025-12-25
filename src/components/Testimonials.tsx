@@ -56,21 +56,21 @@ const testimonialsData = [
     rating: 4,
   },
   {
-    name: "Michael Thompson",
+    name: "Michael T.",
     date: new Date("2025-11-25"),
     content: "Highly professional, responsive, and easy to work with. ",
     initials: "MT",
     rating: 5,
   },
   {
-    name: "Tushar Badola",
+    name: "Tushar B.",
     date: new Date("2025-11-10"),
     content: "A dependable team that truly understands project requirements.",
     initials: "TB",
     rating: 4,
   },
   {
-    name: "Pranav Sharma",
+    name: "Pranav S.",
     date: new Date("2025-11-05"),
     content:
       "Clean, modern, and highly impressive website design. The overall experience was smooth and truly professional.",

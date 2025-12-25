@@ -47,16 +47,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     y.set(0);
   };
 
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      whileHover={{ y: -10 }}
+      onMouseMove={isMobile ? undefined : handleMouseMove}
+      onMouseLeave={isMobile ? undefined : handleMouseLeave}
+      style={
+        isMobile
+          ? {}
+          : {
+              rotateX,
+              rotateY,
+              transformStyle: "preserve-3d",
+            }
+      }
+      whileHover={isMobile ? { y: -5 } : { y: -10 }}
       className="group relative glass-morphism rounded-[32px] overflow-hidden border border-white/5 hover:border-white/10 transition-colors duration-500"
     >
       <div
@@ -65,7 +78,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       >
         {image ? (
           <Image
-            src={image}
+            src={image as string}
             alt={title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-110"

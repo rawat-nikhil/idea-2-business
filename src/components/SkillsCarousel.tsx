@@ -72,10 +72,21 @@ const skills = [
 ];
 
 const SkillsCarousel = () => {
-  const scrollingSkills = [...skills, ...skills, ...skills];
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const scrollingSkills = isMobile
+    ? [...skills, ...skills]
+    : [...skills, ...skills, ...skills];
 
   return (
-    <section id="skills" className="py-32 overflow-hidden relative">
+    <section id="skills" className="py-24 md:py-32 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 mb-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -98,13 +109,13 @@ const SkillsCarousel = () => {
       <div className="relative flex overflow-hidden group">
         <motion.div
           className="flex whitespace-nowrap gap-8 py-10"
-          animate={{ x: "-33.33%" }}
+          animate={{ x: isMobile ? "-50%" : "-33.33%" }}
           transition={{
-            duration: 40,
+            duration: isMobile ? 25 : 40,
             repeat: Infinity,
             ease: "linear",
           }}
-          whileHover={{ animationPlayState: "paused" }}
+          whileHover={isMobile ? {} : { animationPlayState: "paused" }}
         >
           {scrollingSkills.map((skill, index) => (
             <motion.div

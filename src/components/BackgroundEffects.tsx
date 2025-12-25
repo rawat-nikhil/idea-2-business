@@ -9,27 +9,33 @@ const BackgroundEffects = () => {
   const y2 = useTransform(scrollY, [0, 1000], [0, -150]);
   const rotate = useTransform(scrollY, [0, 2000], [0, 360]);
 
+  const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   if (!mounted) return null;
+
+  const springConfig = { damping: 20, stiffness: 100 };
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Primary Glow */}
       <motion.div
-        style={{ y: y1, rotate }}
-        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-accent/10 blur-[120px] rounded-full"
+        style={isMobile ? {} : { y: y1, rotate }}
+        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-accent/10 blur-[80px] lg:blur-[120px] rounded-full"
       />
 
       {/* Secondary Glow */}
       <motion.div
-        style={{ y: y2, rotate: -rotate }}
-        className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-accent-secondary/10 blur-[100px] rounded-full"
+        style={isMobile ? {} : { y: y2, rotate: -rotate }}
+        className="absolute top-[40%] -right-[10%] w-[40%] h-[40%] bg-accent-secondary/10 blur-[60px] lg:blur-[100px] rounded-full"
       />
 
       {/* Grid Pattern */}
