@@ -30,7 +30,7 @@ const projects = [
     title: "GoVa Foundations",
     description:
       "A blockchain-based platform for secure financial transactions and microservices architecture.",
-    tags: ["Go", "Kubernetes", "Redis", "Kafka"],
+    tags: ["React", "Nest.Js", "Redis", "AWS"],
     link: "https://mygova.com",
     image: "/projects/gova.png",
   },

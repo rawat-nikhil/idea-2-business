@@ -31,8 +31,8 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const navItems = [
-    { name: "Work", href: "#work" },
     { name: "Skills", href: "#skills" },
+    { name: "Work", href: "#work" },
     { name: "Team", href: "#team" },
     { name: "Testimonials", href: "#testimonials" },
   ];
