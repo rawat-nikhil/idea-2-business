@@ -4,6 +4,7 @@ import SkillsCarousel from "@/components/SkillsCarousel";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
 import Team from "@/components/Team";
+import Pricing from "@/components/Pricing";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <SkillsCarousel />
       <Projects />
       <Team />
+      <Pricing />
       <Testimonials />
       <Footer />
     </main>
